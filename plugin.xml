@@ -11,13 +11,24 @@
 			</feature>
 		</config-file>
 		<config-file parent="/*" target="AndroidManifest.xml">
-			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
-			<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-			<uses-permission android:name="android.permission.INTERNET"></uses-permission>
-			<uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+			<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+			<uses-permission android:name="android.permission.INTERNET"/>
+			<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 		</config-file>
-
 		<source-file src="src/android/UMengStatistics.java" target-dir="src/com/mobishift/umengstatistics/UMengStatistics"/>
 		<source-file src="src/android/umeng-analytics-v5.5.3.jar" target-dir="libs/"/>
+	</platform>
+	<platform name="ios">
+		<config-file parent="/*" target="config.xml">
+			<feature name="UMengStatistics">
+				<param name="ios-package" value="UMengStatistics"/>
+			</feature>
+		</config-file>
+		<source-file src="src/ios/UMengStatistics.m"/>
+
+		<header-file src="src/ios/MobClick.h" />
+		<header-file src="src/ios/MobClickSocialAnalytics.h" />
+		<source-file src="src/ios/libMobClickLibrary.a" framework="true"/>
 	</platform>
 </plugin>

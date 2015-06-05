@@ -12,3 +12,7 @@ exports.pageStart = function(pageName){
 exports.pageEnd = function(pageName){
 	exports.exec('pageEnd', pageName, noop, noop);
 };
+
+exports.pageEvent = function(eventId){
+	exports.exec('pageEvent', eventId, noop, noop);
+};

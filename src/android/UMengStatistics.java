@@ -15,6 +15,7 @@ import com.umeng.analytics.MobclickAgent;
 public class UMengStatistics extends CordovaPlugin {
     private static final String PAGE_START = "pageStart";
     private static final String PAGE_END = "pageEnd";
+    private static final String PAGE_EVENT = "pageEvent";
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
@@ -26,6 +27,9 @@ public class UMengStatistics extends CordovaPlugin {
             String pageName = args.getString(0);
             MobclickAgent.onPageEnd(pageName);
             return true;
+        }else if(action.equals(PAGE_EVENT)){
+            String eventId = args.getString(0);
+            MobclickAgent.onEvent(this.cordova.getActivity(), eventId);
         }
         return false;
     }
